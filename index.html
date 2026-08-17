@@ -14,14 +14,14 @@
       padding: 0;
     }
     body {
-      background-color: #0b0c0e;
-      color: #d1d5db;
+      background-color: #000000;
+      color: #adbac7;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 14px;
       line-height: 1.5;
     }
     a {
-      color: #38bdf8;
+      color: #539bf5;
       text-decoration: none;
     }
     a:hover {
@@ -30,17 +30,17 @@
 
     /* Navbar */
     .navbar {
-      background-color: #111215;
-      border-bottom: 1px solid #1f2228;
+      background-color: #000000;
+      border-bottom: 1px solid #1c2128;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 24px;
+      padding: 12px 32px;
     }
     .nav-left, .nav-right {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
     }
     .logo-container {
       display: flex;
@@ -48,13 +48,14 @@
       gap: 8px;
       font-weight: 700;
       color: #10b981;
-      font-size: 18px;
+      font-size: 20px;
+      margin-right: 12px;
     }
     .nav-btn {
-      background: #1a1d24;
-      border: 1px solid #2e333d;
-      color: #e5e7eb;
-      padding: 6px 12px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      color: #adbac7;
+      padding: 6px 14px;
       border-radius: 6px;
       font-weight: 500;
       font-size: 13px;
@@ -64,23 +65,22 @@
       gap: 6px;
     }
     .nav-btn:hover {
-      background: #252a34;
+      background: #22272e;
     }
     .btn-green {
       background-color: #10b981;
-      color: #052e16;
+      color: #000000;
       border: none;
       font-weight: 600;
-    }
-    .btn-green:hover {
-      background-color: #34d399;
+      border-radius: 6px;
+      padding: 6px 16px;
     }
 
-    /* Container */
+    /* Main Container */
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 24px 16px;
+      padding: 32px 24px;
     }
 
     /* Header Banner */
@@ -93,34 +93,43 @@
     .project-info {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
     .project-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 12px;
-      background: #22c55e;
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      background-color: #a3e635;
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+    .project-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .project-title h1 {
-      font-size: 24px;
+      font-size: 28px;
       color: #ffffff;
       font-weight: 700;
     }
     .project-subtitle {
-      color: #9ca3af;
-      margin-bottom: 6px;
+      color: #768390;
+      font-size: 15px;
+      margin-bottom: 8px;
     }
     .project-stats {
       display: flex;
+      align-items: center;
       gap: 12px;
-      align-size: 12px;
-      color: #9ca3af;
+      font-size: 13px;
+      color: #768390;
     }
     .badge {
-      background: #1f242d;
+      background: #1c2128;
+      color: #768390;
       padding: 2px 8px;
       border-radius: 12px;
       font-size: 12px;
@@ -128,58 +137,67 @@
 
     .header-actions {
       display: flex;
-      gap: 8px;
+      gap: 10px;
     }
     .btn-download {
       background-color: #10b981;
-      color: #000;
+      color: #000000;
       font-weight: 700;
-      padding: 10px 20px;
+      padding: 10px 24px;
       border-radius: 8px;
       border: none;
       font-size: 15px;
       cursor: pointer;
     }
     .btn-icon {
-      background: #1a1d24;
-      border: 1px solid #2e333d;
-      color: #fff;
+      background: #161b22;
+      border: 1px solid #30363d;
+      color: #ffffff;
       padding: 10px;
       border-radius: 8px;
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
     }
 
     /* Navigation Tabs */
     .tabs {
       display: flex;
       gap: 8px;
-      border-bottom: 1px solid #1f2228;
-      padding-bottom: 12px;
+      background: #161b22;
+      padding: 4px;
+      border-radius: 20px;
+      width: fit-content;
       margin-bottom: 24px;
     }
     .tab {
-      padding: 8px 16px;
-      border-radius: 20px;
-      color: #9ca3af;
+      padding: 6px 18px;
+      border-radius: 16px;
+      color: #adbac7;
       font-weight: 500;
       cursor: pointer;
+      font-size: 13px;
     }
     .tab.active {
-      background-color: #10b98120;
-      color: #10b981;
+      background-color: #10b981;
+      color: #000000;
+      font-weight: 600;
     }
 
     /* Main Grid Layout */
     .main-grid {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: 1fr 320px;
       gap: 24px;
     }
 
-    /* Left Content Area */
+    /* Content Area */
     .content-card {
-      background: #111215;
-      border: 1px solid #1f2228;
+      background: #0d1117;
+      border: 1px solid #1c2128;
       border-radius: 12px;
       padding: 24px;
     }
@@ -188,78 +206,91 @@
       gap: 12px;
       margin-bottom: 24px;
     }
-    .promo-btn {
-      padding: 10px 16px;
+    .promo-btn-discord {
+      background-color: #5865F2;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 12px 20px;
       border-radius: 6px;
-      font-weight: 600;
-      color: #fff;
       text-decoration: none;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .discord-btn { background-color: #5865F2; }
-    .patreon-btn { background-color: #FF424D; }
+    .promo-btn-patreon {
+      background-color: #FF424D;
+      color: #ffffff;
+      font-weight: 700;
+      padding: 12px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
 
     .content-body h2 {
-      color: #fff;
-      margin: 16px 0 8px 0;
+      color: #ffffff;
+      font-size: 20px;
+      margin: 20px 0 8px 0;
     }
     .content-body p {
       margin-bottom: 12px;
+      color: #adbac7;
     }
     .preview-img {
       width: 100%;
       border-radius: 8px;
-      border: 1px solid #2e333d;
-      margin-top: 12px;
+      border: 1px solid #1c2128;
+      margin-top: 16px;
     }
 
-    /* Right Sidebar */
+    /* Sidebar */
     .sidebar-card {
-      background: #111215;
-      border: 1px solid #1f2228;
+      background: #0d1117;
+      border: 1px solid #1c2128;
       border-radius: 12px;
-      padding: 16px;
+      padding: 20px;
       margin-bottom: 16px;
     }
     .sidebar-card h3 {
-      color: #fff;
-      font-size: 15px;
+      color: #ffffff;
+      font-size: 16px;
       margin-bottom: 12px;
     }
     .sidebar-subtext {
-      color: #9ca3af;
-      font-size: 12px;
-      margin-bottom: 8px;
+      color: #768390;
+      font-size: 13px;
+      margin: 12px 0 6px 0;
     }
     .tag-group {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 12px;
     }
     .tag {
-      background: #1a1d24;
-      border: 1px solid #2e333d;
-      padding: 3px 8px;
-      border-radius: 4px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      padding: 4px 10px;
+      border-radius: 12px;
       font-size: 12px;
-      color: #cbd5e1;
+      color: #adbac7;
     }
     .link-list {
       list-style: none;
     }
     .link-list li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .link-list a {
-      color: #cbd5e1;
+      color: #adbac7;
       display: flex;
       align-items: center;
       gap: 8px;
       font-size: 13px;
     }
     .link-list a:hover {
-      color: #38bdf8;
+      color: #539bf5;
     }
   </style>
 </head>
@@ -269,7 +300,7 @@
   <header class="navbar">
     <div class="nav-left">
       <div class="logo-container">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="#10b981"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         modrinth
       </div>
       <button class="nav-btn">Discover content ▾</button>
@@ -277,7 +308,8 @@
       <button class="nav-btn">Get Modrinth App</button>
     </div>
     <div class="nav-right">
-      <button class="nav-btn btn-green">Sign in</button>
+      <button class="btn-green">Sign in</button>
+      <button class="nav-btn">⚙️</button>
     </div>
   </header>
 
@@ -286,14 +318,15 @@
     <section class="header-banner">
       <div class="project-info">
         <div class="project-icon">
-          <!-- Mod Icon Placeholder -->
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <!-- Green Cloth Icon -->
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
         <div class="project-title">
           <h1>Cloth Config API</h1>
           <p class="project-subtitle">Configuration Library for Minecraft Mods</p>
           <div class="project-stats">
             <span>📥 155.9m downloads</span>
+            <span>•</span>
             <span>❤️ 16.3k followers</span>
             <span class="badge">Library</span>
           </div>
@@ -303,10 +336,11 @@
         <button class="btn-download">Download</button>
         <button class="btn-icon">❤️</button>
         <button class="btn-icon">🔖</button>
+        <button class="btn-icon">⋮</button>
       </div>
     </section>
 
-    <!-- Content Navigation -->
+    <!-- Navigation Tabs -->
     <nav class="tabs">
       <div class="tab active">Description</div>
       <div class="tab">Gallery</div>
@@ -316,11 +350,11 @@
 
     <!-- Main Grid -->
     <div class="main-grid">
-      <!-- Left Column / Page Body -->
+      <!-- Left Column / Content -->
       <main class="content-card">
         <div class="promo-buttons">
-          <a href="#" class="promo-btn discord-btn">Click me to join our discord!</a>
-          <a href="#" class="promo-btn patreon-btn">Support me on Patreon!</a>
+          <a href="#" class="promo-btn-discord">Click me to join our discord!</a>
+          <a href="#" class="promo-btn-patreon">Support me on Patreon!</a>
         </div>
 
         <div class="content-body">
@@ -329,7 +363,7 @@
           <h2>Developers Wiki</h2>
           <p><a href="https://shedaniel.gitbook.io/cloth-config/" target="_blank">https://shedaniel.gitbook.io/cloth-config/</a></p>
 
-          <img class="preview-img" src="https://raw.githubusercontent.com/shedaniel/cloth-config/main/icon.png" alt="Cloth Config Screen Preview" onerror="this.src='https://via.placeholder.com/700x400/1f242d/ffffff?text=Config+Screen+Preview'">
+          <img class="preview-img" src="https://raw.githubusercontent.com/shedaniel/cloth-config/main/icon.png" alt="Cloth Config Preview" onerror="this.src='https://via.placeholder.com/700x400/1c2128/ffffff?text=Config+Screen+Preview'">
         </div>
       </main>
 
@@ -348,6 +382,8 @@
             <span class="tag">1.18.x</span>
             <span class="tag">1.17.x</span>
             <span class="tag">1.16.x</span>
+            <span class="tag">1.15.x</span>
+            <span class="tag">1.14.x</span>
           </div>
 
           <p class="sidebar-subtext">Platforms</p>
@@ -361,6 +397,7 @@
           <div class="tag-group">
             <span class="tag">Client-side</span>
             <span class="tag">Server-side</span>
+            <span class="tag">Client and server</span>
           </div>
         </div>
 
@@ -381,6 +418,14 @@
           <h3>Tags</h3>
           <div class="tag-group">
             <span class="tag">Library</span>
+          </div>
+        </div>
+
+        <!-- Creators Card -->
+        <div class="sidebar-card">
+          <h3>Creators</h3>
+          <div class="tag-group">
+            <span class="tag">shedaniel</span>
           </div>
         </div>
       </aside>
