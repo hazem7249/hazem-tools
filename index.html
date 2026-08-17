@@ -1,1 +1,282 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Storefront</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --accent-color: #00adb5;
+            --text-color: #eeeeee;
+            --text-dim: #aaaaaa;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        header {
+            background-color: #0f0f0f;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 1.5rem;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"], select {
+            background-color: var(--card-bg);
+            border: 1px solid #333;
+            color: var(--text-color);
+            padding: 0.8rem 1rem;
+            border-radius: 6px;
+            outline: none;
+        }
+
+        input[type="text"] {
+            flex-grow: 1;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .card-title {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Modal Details */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">HAZEM TOOLS</div>
+        <nav>
+            <a onclick="filterCategory('All')">Home</a>
+            <a onclick="filterCategory('Tools')">Tools</a>
+            <a onclick="filterCategory('Games')">Games</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search items..." oninput="renderItems()">
+            <select id="categorySelect" onchange="renderItems()">
+                <option value="All">All Categories</option>
+                <option value="Tools">Tools</option>
+                <option value="Games">Games</option>
+            </select>
+        </div>
+
+        <div class="grid" id="itemGrid"></div>
+    </div>
+
+    <div class="modal" id="itemModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalCategory" style="color: var(--accent-color);"></p>
+            <p id="modalDesc"></p>
+            <a id="modalDownload" href="#" target="_blank" class="btn">Download / Access</a>
+        </div>
+    </div>
+
+    <script>
+        // EDIT YOUR ITEMS HERE
+        const games = [
+            {
+                id: 1,
+                title: "Example Tool",
+                category: "Tools",
+                image: "https://via.placeholder.com/300x160?text=Tool+Preview",
+                description: "This is a description for your first tool project.",
+                downloadUrl: "https://github.com"
+            },
+            {
+                id: 2,
+                title: "Example Game",
+                category: "Games",
+                image: "https://via.placeholder.com/300x160?text=Game+Preview",
+                description: "This is a description for your first game project.",
+                downloadUrl: "https://github.com"
+            }
+        ];
+
+        function renderItems() {
+            const grid = document.getElementById('itemGrid');
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categorySelect').value;
+
+            grid.innerHTML = '';
+
+            const filtered = games.filter(item => {
+                const matchesSearch = item.title.toLowerCase().includes(search) || item.description.toLowerCase().includes(search);
+                const matchesCategory = category === 'All' || item.category === category;
+                return matchesSearch && matchesCategory;
+            });
+
+            filtered.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${item.image}" alt="${item.title}">
+                    <div class="card-content">
+                        <div class="card-category">${item.category}</div>
+                        <h3 class="card-title">${item.title}</h3>
+                        <p class="card-desc">${item.description}</p>
+                        <button class="btn" onclick="openModal(${item.id})">View Details</button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat) {
+            document.getElementById('categorySelect').value = cat;
+            renderItems();
+        }
+
+        function openModal(id) {
+            const item = games.find(g => g.id === id);
+            if (!item) return;
+
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalCategory').innerText = item.category;
+            document.getElementById('modalDesc').innerText = item.description;
+            document.getElementById('modalDownload').href = item.downloadUrl;
+
+            document.getElementById('itemModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('itemModal').style.display = 'none';
+        }
+
+        // Initial Render
+        renderItems();
+    </script>
+</body>
+</html>
