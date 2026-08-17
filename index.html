@@ -14,7 +14,7 @@
       padding: 0;
     }
     body {
-      background-color: #000000;
+      background-color: #0b0c0e;
       color: #adbac7;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       font-size: 14px;
@@ -28,14 +28,15 @@
       text-decoration: underline;
     }
 
-    /* Navbar */
+    /* Full-width Navbar */
     .navbar {
-      background-color: #000000;
+      background-color: #111215;
       border-bottom: 1px solid #1c2128;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 12px 32px;
+      padding: 12px 24px;
+      width: 100%;
     }
     .nav-left, .nav-right {
       display: flex;
@@ -76,11 +77,10 @@
       padding: 6px 16px;
     }
 
-    /* Main Container */
+    /* Main Full-Width Container */
     .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 32px 24px;
+      width: 100%;
+      padding: 24px;
     }
 
     /* Header Banner */
@@ -104,11 +104,6 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-    }
-    .project-icon img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
     .project-title h1 {
       font-size: 28px;
@@ -187,16 +182,17 @@
       font-weight: 600;
     }
 
-    /* Main Grid Layout */
+    /* Fluid Grid Layout */
     .main-grid {
       display: grid;
-      grid-template-columns: 1fr 320px;
+      grid-template-columns: 1fr 340px;
       gap: 24px;
+      width: 100%;
     }
 
     /* Content Area */
     .content-card {
-      background: #0d1117;
+      background: #111215;
       border: 1px solid #1c2128;
       border-radius: 12px;
       padding: 24px;
@@ -247,7 +243,7 @@
 
     /* Sidebar */
     .sidebar-card {
-      background: #0d1117;
+      background: #111215;
       border: 1px solid #1c2128;
       border-radius: 12px;
       padding: 20px;
@@ -318,7 +314,6 @@
     <section class="header-banner">
       <div class="project-info">
         <div class="project-icon">
-          <!-- Green Cloth Icon -->
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
         <div class="project-title">
@@ -434,3 +429,4 @@
 
 </body>
 </html>
+
